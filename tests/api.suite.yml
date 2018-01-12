@@ -1,0 +1,7 @@
+actor: ApiTester
+modules:
+    enabled:
+        - REST:
+            url: http://207.154.242.0:8888
+            depends: PhpBrowser
+            part: Json
