@@ -23,14 +23,6 @@ class RequestRegistration
     static $zip;
     static $street;
 
-    static function getHttpHeaderContentType() {
-        return self::$httpHeaderContentType;
-    }
-
-    static function getHttpHeaderApplicationType() {
-        return self::$httpHeaderApplicationType;
-    }
-
     static function setData($email, $phone, $pwd, $birthDate, $description){
         self::$email = $email;
         self::$phone = $phone;

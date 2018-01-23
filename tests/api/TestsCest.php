@@ -27,7 +27,7 @@ class TestsCest
     function testBirthDateObligateCept(ApiTester $I) {
         //test: birth date is obligate field
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
         $email = time() . '@mail.com';
 
         RequestRegistration::setData($email, '+371 6111111', '111aaa', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
@@ -42,7 +42,7 @@ class TestsCest
     function testDescriptionFieldObligateCept(ApiTester $I){
         //test: description is obligate field
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
         $email = time() . '@mail.com';
 
         RequestRegistration::setData($email, '+371 6111111', '111aaa', '1988-06-25T00:00:00.000Z', null);
@@ -57,7 +57,7 @@ class TestsCest
     function testEmailFieldObligateCept(ApiTester $I){
         //test: email is obligate field
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
 
         RequestRegistration::setData(null, '+371 6111111', '111aaa', '1988-06-25T00:00:00.000Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
         RequestRegistration::setAddress('US', 'New York', 'John Doe', 'LV-1011', 'Ropazu 10');
@@ -71,7 +71,7 @@ class TestsCest
     function testNotObligateFieldsCept(ApiTester $I){
         //test for not obligate fields: Country-city-state-zip-street. state not obligate
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
         $email = time() . '@mail.com';
 
         RequestRegistration::setData($email, '+371 6111111', '111aaa', '1988-06-25T00:00:00.000Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
@@ -86,7 +86,7 @@ class TestsCest
     function testPasswordFieldValidationCept(ApiTester $I){
         //test: Password should contain digits and latin letters only
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
         $email = time() . '@mail.com';
 
         RequestRegistration::setData($email, '+371 6111111', '111aaa@', '1988-06-25T00:00:00.000Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
@@ -101,7 +101,7 @@ class TestsCest
     function testSuccessRegistrationCept(ApiTester $I){
         //test successful registration
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
         $email = time() . '@mail.com';
 
         RequestRegistration::setData($email, '+371 6111111', '111aaa', '1988-06-25T00:00:00.000Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
@@ -117,7 +117,7 @@ class TestsCest
         //test: user age must be over 21 year for successful registration - test for border: 20 - not valid
         //$I = new ApiTester($scenario);
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
         $email = time() . '@mail.com';
         //get date = current one - 20 years
         $time = strtotime("-20 year", time());
@@ -136,7 +136,7 @@ class TestsCest
         //test: user age must be over 21 year for successful registration - test for border: 21 - should valid
         //$I = new ApiTester($scenario);
         $I->wantTo('register a user via API');
-        $I->haveHttpHeader(RequestRegistration::getHttpHeaderContentType(), RequestRegistration::getHttpHeaderApplicationType());
+        $I->haveHttpHeader(RequestRegistration::$httpHeaderContentType, RequestRegistration::$httpHeaderApplicationType);
         $email = time() . '@mail.com';
         //get date = current one - 20 years
         $time = strtotime("-21 year", time());
